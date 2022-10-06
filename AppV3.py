@@ -49,7 +49,8 @@ def pdf_to_audio():
     gender = gender_entry.get()
     voice_rate = int(rate_entry.get())
     save_opt = save_entry.get()
-
+    all_text = ''
+    
     engine = pyttsx3.init()
 
     engine.setProperty('rate', voice_rate)
