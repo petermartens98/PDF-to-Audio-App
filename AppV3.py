@@ -69,7 +69,6 @@ def pdf_to_audio():
     for num in range(start_pg, stop_pg):
         page = pdfReader.getPage(num - 1)
         text = page.extractText()
-        text.strip()
         text = text.replace('\n', ' ').replace('\r', '')
         all_text = all_text + text
         # Have voice engine recite text
