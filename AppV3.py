@@ -68,12 +68,14 @@ def pdf_to_audio():
 
     for num in range(start_pg, stop_pg):
         page = pdfReader.getPage(num - 1)
-        text = page.extractText()
-        text = text.replace('\n', ' ').replace('\r', '')
+        og_text = page.extractText()
+        text = og_text.replace('\n', ' ').replace('\r', '')
         all_text = all_text + text
-        # Have voice engine recite text
-        engine.say(text)
-        engine.runAndWait()
+        print('-------------------------------------- Page '+str(num)+' --------------------------------------')
+        print(og_text)
+        
+    engine.say(all_text)
+    engine.runAndWait()
 
     if (save_opt=='Yes'):
         engine.save_to_file(all_text, pdf_path+'_Audio.mp3')
