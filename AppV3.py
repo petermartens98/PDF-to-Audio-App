@@ -70,7 +70,7 @@ def pdf_to_audio():
         page = pdfReader.getPage(num - 1)
         text = page.extractText()
         text.strip()
-        text.remove("  ","")
+        text = text.replace('\n', ' ').replace('\r', '')
         all_text = all_text + text
         # Have voice engine recite text
         engine.say(text)
